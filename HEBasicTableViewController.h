@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *dataArray;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak,nonatomic) NSString *blankImageName;
 
 - (void)useRefreshControl;
 @end

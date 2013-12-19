@@ -12,7 +12,9 @@
 
 @end
 
-@implementation HEBasicTableViewController
+@implementation HEBasicTableViewController {
+    UIImageView *_blankImageView;
+}
 
 - (void)viewDidLoad
 {
@@ -43,7 +45,21 @@
     }
 }
 
-
+- (void)toogleBlankScreen
+{
+    if ([self.dataArray count]==0 && self.blankImageName){
+        if (!_blankImageView) {
+            _blankImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
+            [_blankImageView setContentMode:UIViewContentModeCenter];
+            _blankImageView.image = [UIImage imageNamed:self.blankImageName];
+            _blankImageView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+            [self.view addSubview:_blankImageView];
+        }
+        _blankImageView.hidden = NO;
+    } else {
+        _blankImageView.hidden = YES;
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -53,6 +69,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    [self toogleBlankScreen];
     return [self.dataArray count];
 }
 

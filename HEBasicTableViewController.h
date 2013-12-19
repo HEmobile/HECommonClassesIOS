@@ -16,4 +16,5 @@
 @property (weak,nonatomic) NSString *blankImageName;
 
 - (void)useRefreshControl;
+- (void)toogleBlankScreen;
 @end

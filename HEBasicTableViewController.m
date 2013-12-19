@@ -47,8 +47,10 @@
 
 - (void)toogleBlankScreen
 {
+    NSLog(@"blank");
     if ([self.dataArray count]==0 && self.blankImageName){
         if (!_blankImageView) {
+            NSLog(@"show");
             _blankImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
             [_blankImageView setContentMode:UIViewContentModeCenter];
             _blankImageView.image = [UIImage imageNamed:self.blankImageName];

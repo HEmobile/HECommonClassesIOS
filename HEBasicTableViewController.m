@@ -47,7 +47,6 @@
 
 - (void)toogleBlankScreen
 {
-    NSLog(@"blank");
     if ([self.dataArray count]==0 && self.blankImageName){
         if (!_blankImageView) {
             NSLog(@"show");

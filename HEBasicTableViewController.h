@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HEBasicTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface HEBasicTableViewController : GAITrackedViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *dataArray;

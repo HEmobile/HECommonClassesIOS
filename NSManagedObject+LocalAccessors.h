@@ -23,6 +23,9 @@
 + (NSArray *)fetchAllWithPredicate:(NSPredicate *)predicate andSortDescriptor:(NSSortDescriptor *)sortDescriptor;
 + (NSArray *)fetchAllWithPredicate:(NSPredicate *)predicate;
 + (NSArray *)fetchAllWithSortDescriptor:(NSSortDescriptor *)sortDescriptor;
++ (NSArray *)fetchAllWithSortDescriptors:(NSArray *)sortDescriptors;
++ (NSArray *)fetchAllWithPredicate:(NSPredicate *)predicate andSortDescriptors:(NSArray *)sortDescriptors;
+
 
 - (void)setAttribute:(NSString *)attributeName withObject:(id)object;
 @end

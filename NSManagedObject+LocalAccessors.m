@@ -119,4 +119,27 @@
     return [self fetchAllWithPredicate:nil andSortDescriptor:sortDescriptor];
 }
 
++ (NSArray *)fetchAllWithSortDescriptors:(NSArray *)sortDescriptors
+{
+    return [self fetchAllWithPredicate:nil andSortDescriptors:sortDescriptors];
+}
+
++ (NSArray *)fetchAllWithPredicate:(NSPredicate *)predicate andSortDescriptors:(NSArray *)sortDescriptors
+{
+    NSArray *results = nil;
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
+    if (predicate) request.predicate = predicate;
+    if (sortDescriptors) request.sortDescriptors = sortDescriptors;
+    
+    NSError *error;
+    results = [[self sharedManagedObjectContext] executeFetchRequest:request error:&error];
+    
+    if (error != nil) {
+        NSLog(@"%@.fetchAllWithPredicate:andSortDescriptor ERROR: %@, %@", NSStringFromClass([self class]), error, [error userInfo]);
+    }
+    
+    return results;
+}
+
 @end
